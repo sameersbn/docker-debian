@@ -1,0 +1,14 @@
+machine:
+  services:
+    - docker
+dependencies:
+  cache_directories:
+    - "~/docker-debian"
+  override:
+    - docker info
+    - if [[ -e ~/docker-debian/image.tar ]]; then docker load --input ~/docker-debian/image.tar; fi
+    - docker build -t sameersbn/debian .
+    - mkdir -p ~/docker-debian; docker save --output ~/docker-debian/image.tar sameersbn/debian
+test:
+  override:
+    - docker run -it sameersbn/debian echo "Hello World"

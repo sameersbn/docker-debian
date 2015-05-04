@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/sameersbn/docker-debian.svg?style=svg)](https://circleci.com/gh/sameersbn/docker-debian)
+
 # About
 
 Dockerfile to build a debian baseimage with a couple of extra packages.
